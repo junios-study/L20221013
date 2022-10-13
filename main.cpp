@@ -45,6 +45,26 @@ int main()
 		Y++;
 	}
 
+	for (auto Value : MyWalls)
+	{
+		Value->Draw();
+	}
+
+	for (auto Value : MyFloors)
+	{
+		Value->Draw();
+	}
+
+	for (auto Value : MyGoals)
+	{
+		Value->Draw();
+	}
+
+	for (auto Value : MyPlayers)
+	{
+		Value->Draw();
+	}
+
 	MapFile.close();
 	
 	return 0;
