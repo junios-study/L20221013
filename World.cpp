@@ -52,7 +52,7 @@ void FWorld::Render()
 {
 	for (auto Value : ActorList)
 	{
-		Value->Draw();
+		Value->Render();
 	}
 }
 

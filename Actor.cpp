@@ -23,7 +23,7 @@ AActor::~AActor()
 {
 }
 
-void AActor::Draw()
+void AActor::Render()
 {
 	COORD Currrent;
 	Currrent.X = X;

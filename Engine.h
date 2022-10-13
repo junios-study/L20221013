@@ -18,13 +18,13 @@ public:
 
 	void Run();
 
-	void Load(string MapFilename);
-
 protected:
 
 	virtual void Input();
 	virtual void Tick();
 	virtual void Render();
+
+	void Load(string MapFilename);
 
 	FWorld* MyWorld;
 };
