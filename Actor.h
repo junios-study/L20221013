@@ -10,7 +10,8 @@ public:
 	AActor(int NewX, int NewY);
 	virtual ~AActor();
 
-	void Draw();
+	virtual void Draw();
+	virtual void Tick();
 
 	int X;
 	int Y;

@@ -32,3 +32,7 @@ void AActor::Draw()
 
 	cout << Shape;
 }
+
+void AActor::Tick()
+{
+}
