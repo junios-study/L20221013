@@ -1,3 +1,1 @@
-#Header
-##Header2
-### Hedaer
+# 이건 SDL 프로젝트 시작
