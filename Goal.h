@@ -1,8 +1,9 @@
 #pragma once
-class FGoal
+#include "Actor.h"
+
+class AGoal : public AActor
 {
 public:
-	FGoal();
-	~FGoal();
+	AGoal();
+	~AGoal();
 };
-

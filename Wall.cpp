@@ -1,9 +1,11 @@
 #include "Wall.h"
 
-FWall::FWall()
+AWall::AWall()
+{
+	Shape = '*';
+}
+
+AWall::~AWall()
 {
 }
 
-FWall::~FWall()
-{
-}

@@ -1,9 +1,10 @@
 #include "Goal.h"
 
-FGoal::FGoal()
+AGoal::AGoal()
 {
+	Shape = 'G';
 }
 
-FGoal::~FGoal()
+AGoal::~AGoal()
 {
 }

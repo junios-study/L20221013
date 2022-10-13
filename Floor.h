@@ -1,8 +1,10 @@
 #pragma once
-class FFloor
+#include "Actor.h"
+
+class AFloor : public AActor
 {
 public:
-	FFloor();
-	~FFloor();
+	AFloor();
+	~AFloor();
 };
 

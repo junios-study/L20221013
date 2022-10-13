@@ -1,9 +1,12 @@
 #pragma once
-class FWall
+#include "Actor.h"
+
+
+
+class AWall : public AActor
 {
 public:
-	FWall();
-	~FWall();
-
+	AWall();
+	~AWall();
 };
 
