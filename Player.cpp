@@ -1,4 +1,7 @@
 #include "Player.h"
+#include <iostream>
+
+using namespace std;
 
 APlayer::APlayer()
 {
@@ -14,4 +17,9 @@ APlayer::APlayer(int NewX, int NewY)
 
 APlayer::~APlayer()
 {
+}
+
+void APlayer::Input()
+{
+	cout << "Input" << endl;
 }

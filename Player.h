@@ -9,5 +9,7 @@ public:
 	APlayer(int NewX, int NewY);
 
 	~APlayer();
+
+	void Input();
 };
 
