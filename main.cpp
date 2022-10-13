@@ -3,31 +3,40 @@
 #include "Floor.h"
 #include "Player.h"
 #include "Goal.h"
+#include <vector>
 
 using namespace std;
 
+/*
+**********
+*P       * 
+*        * 
+*        *
+*        *
+*        *
+*        *
+*        *
+*        *
+*       G* 
+**********
+*/
 int main()
 {
-#ifdef _DEBUG
-	AWall* MyWall = new AWall();
-	AFloor* MyFloor = new AFloor();
-	APlayer* MyPlayer = new APlayer();
-	AGoal* MyGoal = new AGoal();
+	vector<AWall*> MyWalls;
+	MyWalls.push_back(new AWall(0, 0));
+	MyWalls.push_back(new AWall(1, 0));
+	MyWalls.push_back(new AWall(2, 0));
 
-	MyPlayer->X = 10;
-	MyPlayer->Y = 10;
+	for (auto Value : MyWalls)
+	{
+		Value->Draw();
+	}
 
-	MyWall->Draw();
-	MyFloor->Draw();
-	MyPlayer->Draw();
-	MyGoal->Draw();
-
-	delete MyGoal;
-	delete MyPlayer;
-	delete MyFloor;
-	delete MyWall;
-#endif
-
+	for (auto Value : MyWalls)
+	{
+		delete Value;
+	}
+	MyWalls.clear();
 
 
 	return 0;

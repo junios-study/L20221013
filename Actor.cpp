@@ -20,7 +20,7 @@ void AActor::Draw()
 {
 	COORD Currrent;
 	Currrent.X = X;
-	Currrent.Y = X;
+	Currrent.Y = Y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Currrent);
 
 	cout << Shape;
