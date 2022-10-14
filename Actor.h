@@ -47,6 +47,7 @@ public:
 	ECollisionType CollisionType = ECollisionType::NoCollision;
 };
 
+
 #endif
 
 

@@ -86,7 +86,6 @@ void Engine::Load(string MapFilename)
 	}
 	MapFile.close();
 
-
 	//Sort
 	SortActor();
 }
