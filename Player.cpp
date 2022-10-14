@@ -1,6 +1,6 @@
 #include "Player.h"
 #include <iostream>
-#include "Engine.h"
+#include "MyEngine.h"
 
 using namespace std;
 
@@ -47,7 +47,8 @@ void APlayer::Tick()
 
 		case 'q':
 		case 'Q':
-			//Singleton 
+			GEngine->QuitGame();
+
 			break;
 	}
 }

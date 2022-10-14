@@ -21,7 +21,7 @@ public:
 	virtual void Terminalize() = 0;
 
 	void Run();
-	void Stop();
+	void QuitGame();
 
 
 	inline static int GetKeyCode()

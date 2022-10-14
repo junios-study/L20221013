@@ -6,14 +6,13 @@
 
 int main()
 {
-	MyEngine* E = new MyEngine();
+	GEngine->Initialize();
 
-	E->Initialize();
+	GEngine->Run();
 
-	E->Run();
+	GEngine->Terminalize();
 
-	E->Terminalize();
+	delete GEngine;
 
-	
 	return 0;
 }

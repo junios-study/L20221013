@@ -47,7 +47,7 @@ void Engine::Run()
 	EndPlay();
 }
 
-void Engine::Stop()
+void Engine::QuitGame()
 {
 	bIsRunning = false;
 }
@@ -120,5 +120,7 @@ void Engine::Tick()
 
 void Engine::Render()
 {
+	system("cls");
+
 	MyWorld->Render();
 }
