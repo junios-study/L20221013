@@ -10,6 +10,6 @@ public:
 
 	~APlayer();
 
-	void Input();
+	virtual void Tick() override;
 };
 

@@ -9,6 +9,8 @@
 
 using namespace std;
 
+int Engine::KeyCode = 0;
+
 Engine::Engine()
 {
 	MyWorld = new FWorld();
@@ -19,14 +21,28 @@ Engine::~Engine()
 	delete MyWorld;
 }
 
+void Engine::BeginPlay()
+{
+	MyWorld->BeginPlay();
+}
+
+void Engine::EndPlay()
+{
+	MyWorld->EndPlay();
+}
+
 void Engine::Run()
 {
+	BeginPlay();
+
 	while (true)
 	{
 		Input();
 		Tick();
 		Render();
 	}
+
+	EndPlay();
 }
 
 void Engine::Load(string MapFilename)
@@ -63,7 +79,7 @@ void Engine::Load(string MapFilename)
 
 void Engine::Input()
 {
-	int KeyCode = _getch();
+	Engine::KeyCode = _getch();
 }
 
 void Engine::Tick()

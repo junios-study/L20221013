@@ -12,11 +12,20 @@ public:
 	Engine();
 	virtual ~Engine();
 
+	virtual void BeginPlay();
+
+	virtual void EndPlay();
+
 	//순수 가상 함수
 	virtual void Initialize() = 0;
 	virtual void Terminalize() = 0;
 
 	void Run();
+
+	inline static int GetKeyCode()
+	{
+		return KeyCode;
+	}
 
 protected:
 
@@ -27,5 +36,6 @@ protected:
 	void Load(string MapFilename);
 
 	FWorld* MyWorld;
-};
 
+	static int KeyCode;
+};
