@@ -3,6 +3,7 @@
 AGoal::AGoal()
 {
 	Shape = 'G';
+	ZOrder = 30;
 }
 
 AGoal::AGoal(int NewX, int NewY)

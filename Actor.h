@@ -20,6 +20,18 @@ public:
 	int Y;
 
 	char Shape;
+
+	int ZOrder;
+
+	bool operator<(AActor& RHS)
+	{
+		return (this->ZOrder) < (RHS.ZOrder);
+	}
+
+	static inline bool Compare(AActor* First, AActor* Second)
+	{
+		return (First->ZOrder) < (Second->ZOrder);
+	}
 };
 
 #endif

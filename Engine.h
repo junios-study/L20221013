@@ -21,11 +21,15 @@ public:
 	virtual void Terminalize() = 0;
 
 	void Run();
+	void Stop();
+
 
 	inline static int GetKeyCode()
 	{
 		return KeyCode;
 	}
+
+
 
 protected:
 
@@ -35,7 +39,11 @@ protected:
 
 	void Load(string MapFilename);
 
+	void SortActor();
+
 	FWorld* MyWorld;
 
 	static int KeyCode;
+
+	bool bIsRunning = true;
 };
