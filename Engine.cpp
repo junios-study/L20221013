@@ -108,6 +108,11 @@ void Engine::SortActor()
 	//}
 }
 
+vector<AActor*>& Engine::GetAllActors()
+{
+	return MyWorld->ActorList;
+}
+
 void Engine::Input()
 {
 	Engine::KeyCode = _getch();

@@ -3,6 +3,15 @@
 #ifndef __AACTOR_H__
 #define __AACTOR_H__   
 
+enum class ECollisionType
+{
+	NoCollision				=				0,  // 0000 0000
+	QueryOnly				=				1,  // 0000 0001
+	PhysicsOnly				=				2,  // 0000 0010
+	CollisionEnable			=				(QueryOnly | PhysicsOnly),	// 0000 0011
+};
+
+
 class AActor
 {
 public:
@@ -32,6 +41,10 @@ public:
 	{
 		return (First->ZOrder) < (Second->ZOrder);
 	}
+
+	bool CheckHit(AActor* Other);
+
+	ECollisionType CollisionType = ECollisionType::NoCollision;
 };
 
 #endif

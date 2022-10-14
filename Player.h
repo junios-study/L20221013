@@ -11,5 +11,6 @@ public:
 	~APlayer();
 
 	virtual void Tick() override;
+	bool PredictCanMove();
 };
 

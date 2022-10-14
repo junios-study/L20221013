@@ -1,9 +1,11 @@
 #pragma once
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class FWorld;
+//class AActor;
 
 //추상 클래스
 class Engine
@@ -29,6 +31,7 @@ public:
 		return KeyCode;
 	}
 
+	vector<class AActor*>& GetAllActors();
 
 
 protected:
