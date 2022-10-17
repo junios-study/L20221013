@@ -45,6 +45,11 @@ public:
 	SDL_Renderer* MyRenderer;
 	SDL_Event MyEvent;
 
+	inline const Uint64 GetWorldDeltaSeconds()
+	{
+		return DeltaSeconds;
+	}
+
 protected:
 
 	virtual void Input();
@@ -64,8 +69,5 @@ protected:
 	Uint64 LastTick;
 	Uint64 DeltaSeconds;
 
-	inline const Uint64 GetWorldDeltaSeconds()
-	{
-		return DeltaSeconds;
-	}
+
 };

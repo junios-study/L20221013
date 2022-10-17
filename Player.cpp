@@ -10,6 +10,7 @@ APlayer::APlayer()
 	ZOrder = 40;
 	CollisionType = ECollisionType::CollisionEnable;
 	MyColor = { 0, 255, 0, 0 };
+	MyColorKey = { 255, 0, 255, 0 };
 
 	LoadBMP("data/player.bmp");
 }

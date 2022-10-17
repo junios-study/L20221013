@@ -8,6 +8,7 @@
 #include "Floor.h"
 #include "Wall.h"
 #include "Goal.h"
+#include "Monster.h"
 
 
 using namespace std;
@@ -101,6 +102,11 @@ void Engine::Load(string MapFilename)
 				MyWorld->SpawnActor(new APlayer(X, Y));
 				MyWorld->SpawnActor(new AFloor(X, Y));
 			}
+			else if (Data[X] == 'M')
+			{
+				MyWorld->SpawnActor(new AMonster(X, Y));
+				MyWorld->SpawnActor(new AFloor(X, Y));
+			}
 			else if (Data[X] == 'G')
 			{
 				MyWorld->SpawnActor(new AGoal(X, Y));
@@ -156,7 +162,7 @@ void Engine::Tick()
 
 	MyWorld->Tick();
 
-	SDL_Log("%d", DeltaSeconds);
+	//SDL_Log("%f",  (double)1000 / (double)DeltaSeconds);
 }
 
 void Engine::Render()

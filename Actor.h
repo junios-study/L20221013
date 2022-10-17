@@ -60,6 +60,8 @@ public:
 	SDL_Texture* MyTexture; //VRAM
 
 	void LoadBMP(string Filename);
+
+	SDL_Color MyColorKey;
 };
 
 
