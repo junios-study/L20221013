@@ -157,7 +157,7 @@ void Engine::Tick()
 void Engine::Render()
 {
 	//system("cls");
-	SDL_Color BackgroundColor = { 0xff, 0, 0 ,0 };
+	SDL_Color BackgroundColor = { 0, 0, 0 ,0 };
 
 	SDL_SetRenderDrawColor(MyRenderer, BackgroundColor.r, BackgroundColor.g, BackgroundColor.b, BackgroundColor.a);
 	SDL_RenderClear(MyRenderer);

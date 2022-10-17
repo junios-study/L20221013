@@ -3,6 +3,8 @@
 #ifndef __AACTOR_H__
 #define __AACTOR_H__   
 
+#include "SDL.h"
+
 enum class ECollisionType
 {
 	NoCollision				=				0,  // 0000 0000
@@ -45,6 +47,10 @@ public:
 	bool CheckHit(AActor* Other);
 
 	ECollisionType CollisionType = ECollisionType::NoCollision;
+
+	SDL_Color MyColor;
+
+	int TileSize = 60;
 };
 
 

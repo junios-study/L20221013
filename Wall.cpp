@@ -5,6 +5,7 @@ AWall::AWall()
 	Shape = '*';
 	ZOrder = 20;
 	CollisionType = ECollisionType::PhysicsOnly;
+	MyColor = { 0, 0, 0, 0 };
 }
 
 AWall::AWall(int NewX, int NewY)

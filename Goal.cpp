@@ -10,6 +10,7 @@ AGoal::AGoal()
 	Shape = 'G';
 	ZOrder = 30;
 	CollisionType = ECollisionType::QueryOnly;
+	MyColor = { 255, 255, 0, 0 };
 }
 
 AGoal::AGoal(int NewX, int NewY)

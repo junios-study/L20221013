@@ -9,6 +9,7 @@ APlayer::APlayer()
 	Shape = 'P';
 	ZOrder = 40;
 	CollisionType = ECollisionType::CollisionEnable;
+	MyColor = { 0, 255, 0, 0 };
 }
 
 APlayer::APlayer(int NewX, int NewY)
@@ -24,20 +25,22 @@ APlayer::~APlayer()
 
 void APlayer::Tick()
 {
-	switch (Engine::GetKeyCode())
+	if (GEngine->MyEvent.type != SDL_KEYDOWN)
 	{
-		case 'W':
-		case 'w':
+		return;
+	}
+
+	switch (GEngine->MyEvent.key.keysym.sym)
+	{
+		case SDLK_w:
 			Y--;
 			if (!PredictCanMove())
 			{
 				Y++;
 			}
-			
 			break;
 
-		case 'A':
-		case 'a':
+		case SDLK_a:
 			X--;
 			if (!PredictCanMove())
 			{
@@ -45,8 +48,7 @@ void APlayer::Tick()
 			}
 			break;
 
-		case 's':
-		case 'S':
+		case SDLK_s:
 			Y++;
 			if (!PredictCanMove())
 			{
@@ -54,8 +56,7 @@ void APlayer::Tick()
 			}
 			break;
 
-		case 'd':
-		case 'D':
+		case SDLK_d:
 			X++;
 			if (!PredictCanMove())
 			{
@@ -63,8 +64,7 @@ void APlayer::Tick()
 			}
 			break;
 
-		case 'q':
-		case 'Q':
+		case SDLK_ESCAPE:
 			GEngine->QuitGame();
 
 			break;
