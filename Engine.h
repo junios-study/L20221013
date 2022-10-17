@@ -60,4 +60,12 @@ protected:
 	static int KeyCode;
 
 	bool bIsRunning = true;
+
+	Uint64 LastTick;
+	Uint64 DeltaSeconds;
+
+	inline const Uint64 GetWorldDeltaSeconds()
+	{
+		return DeltaSeconds;
+	}
 };

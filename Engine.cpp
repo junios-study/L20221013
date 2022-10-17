@@ -32,6 +32,7 @@ void Engine::SDLInit()
 
 	MyWindow = SDL_CreateWindow("MyGame", 100, 100, 600, 600, SDL_WINDOW_VULKAN);
 	MyRenderer = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+	//MyRenderer = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_TARGETTEXTURE);
 }
 
 void Engine::SDLTerm()
@@ -65,8 +66,10 @@ void Engine::Run()
 
 	while (bIsRunning)
 	{
+		DeltaSeconds = SDL_GetTicks64() - LastTick;
 		Input();
 		Tick();
+		LastTick = SDL_GetTicks64();
 		Render();
 	}
 
@@ -152,6 +155,8 @@ void Engine::Tick()
 	}
 
 	MyWorld->Tick();
+
+	SDL_Log("%d", DeltaSeconds);
 }
 
 void Engine::Render()
