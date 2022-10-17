@@ -90,3 +90,21 @@ bool APlayer::PredictCanMove()
 
 	return true;
 }
+
+void APlayer::Render()
+{
+	SDL_Rect MyRect = SDL_Rect({ X * TileSize, Y * TileSize, TileSize, TileSize });
+	if (MyTexture == nullptr)
+	{
+		SDL_SetRenderDrawColor(GEngine->MyRenderer, MyColor.r,
+			MyColor.g, MyColor.b, MyColor.a);
+		SDL_RenderFillRect(GEngine->MyRenderer, &MyRect);
+		//SDL_RenderDrawPoint(GEngine->MyRenderer, X * TileSize, Y * TileSize);
+	}
+	else
+	{
+		SDL_Rect SourceRect = { 0, 0, MySurface->w / 5, MySurface->h / 5 };
+		SDL_RenderCopy(GEngine->MyRenderer, MyTexture, &SourceRect, &MyRect);
+	}
+
+}

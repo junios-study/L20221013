@@ -12,5 +12,7 @@ public:
 
 	virtual void Tick() override;
 	bool PredictCanMove();
+
+	virtual void Render() override;
 };
 
