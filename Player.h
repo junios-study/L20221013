@@ -14,5 +14,11 @@ public:
 	bool PredictCanMove();
 
 	virtual void Render() override;
+
+	int SpriteXIndex = 0;
+	int SpriteYIndex = 0;
+
+	Uint64 ElapsedTime = 0;
+	Uint64 ExecuteTime = 0;
 };
 

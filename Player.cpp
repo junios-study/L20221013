@@ -11,6 +11,10 @@ APlayer::APlayer()
 	CollisionType = ECollisionType::CollisionEnable;
 	MyColor = { 0, 255, 0, 0 };
 	MyColorKey = { 255, 0, 255, 0 };
+	ElapsedTime = 0;
+	ExecuteTime = 200;
+	SpriteXIndex = 0;
+	SpriteYIndex = 0;
 
 	LoadBMP("data/player.bmp");
 }
@@ -28,6 +32,14 @@ APlayer::~APlayer()
 
 void APlayer::Tick()
 {
+	ElapsedTime += GEngine->GetWorldDeltaSeconds();
+	if (ExecuteTime <= ElapsedTime)
+	{
+		ElapsedTime = 0;
+		SpriteXIndex++;
+		SpriteXIndex %= 5;
+	}
+
 	if (GEngine->MyEvent.type != SDL_KEYDOWN)
 	{
 		return;
@@ -35,42 +47,46 @@ void APlayer::Tick()
 
 	switch (GEngine->MyEvent.key.keysym.sym)
 	{
-		case SDLK_w:
-			Y--;
-			if (!PredictCanMove())
-			{
-				Y++;
-			}
-			break;
-
-		case SDLK_a:
-			X--;
-			if (!PredictCanMove())
-			{
-				X++;
-			}
-			break;
-
-		case SDLK_s:
+	case SDLK_w:
+		SpriteYIndex = 2;
+		Y--;
+		if (!PredictCanMove())
+		{
 			Y++;
-			if (!PredictCanMove())
-			{
-				Y--;
-			}
-			break;
+		}
+		break;
 
-		case SDLK_d:
+	case SDLK_a:
+		SpriteYIndex = 0;
+		X--;
+		if (!PredictCanMove())
+		{
 			X++;
-			if (!PredictCanMove())
-			{
-				X--;
-			}
-			break;
+		}
+		break;
 
-		case SDLK_ESCAPE:
-			GEngine->QuitGame();
+	case SDLK_s:
+		SpriteYIndex = 3;
+		Y++;
+		if (!PredictCanMove())
+		{
+			Y--;
+		}
+		break;
 
-			break;
+	case SDLK_d:
+		SpriteYIndex = 1;
+		X++;
+		if (!PredictCanMove())
+		{
+			X--;
+		}
+		break;
+
+	case SDLK_ESCAPE:
+		GEngine->QuitGame();
+
+		break;
 	}
 }
 
@@ -103,7 +119,10 @@ void APlayer::Render()
 	}
 	else
 	{
-		SDL_Rect SourceRect = { 0, 0, MySurface->w / 5, MySurface->h / 5 };
+		int SpriteSize = MySurface->w / 5;
+		SDL_Rect SourceRect = { SpriteSize * SpriteXIndex,
+			SpriteSize * SpriteYIndex,
+			SpriteSize, SpriteSize };
 		SDL_RenderCopy(GEngine->MyRenderer, MyTexture, &SourceRect, &MyRect);
 	}
 
