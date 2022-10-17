@@ -3,7 +3,11 @@
 #ifndef __AACTOR_H__
 #define __AACTOR_H__   
 
+#include <string>
 #include "SDL.h"
+
+
+using namespace std;
 
 enum class ECollisionType
 {
@@ -51,6 +55,11 @@ public:
 	SDL_Color MyColor;
 
 	int TileSize = 60;
+
+	SDL_Surface* MySurface; //RAM
+	SDL_Texture* MyTexture; //VRAM
+
+	void LoadBMP(string Filename);
 };
 
 
