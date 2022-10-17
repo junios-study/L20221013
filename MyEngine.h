@@ -6,7 +6,6 @@ class MyEngine : public Engine
 private:
 	MyEngine();
 
-
 public:
 	virtual ~MyEngine();
 
