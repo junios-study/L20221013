@@ -10,6 +10,7 @@
 #include "Goal.h"
 #include "Monster.h"
 #include "Text.h"
+#include "SoundActor.h"
 
 
 using namespace std;
@@ -129,6 +130,8 @@ void Engine::LoadLevel(string MapFilename)
 
 	//Sort
 	SortActor();
+
+	SpawnActor(new ASoundActor("./data/bgm.mp3", true));
 }
 
 void Engine::UnloadLevel()

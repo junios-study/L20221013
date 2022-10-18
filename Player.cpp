@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <iostream>
 #include "MyEngine.h"
+#include "SoundActor.h"
 
 using namespace std;
 
@@ -44,6 +45,10 @@ void APlayer::Tick()
 	{
 		return;
 	}
+
+	GEngine->SpawnActor(new ASoundActor("./data/move.wav", false));
+
+	SDL_Log("Actor Count %d", GEngine->GetAllActors().size());
 
 	switch (GEngine->MyEvent.key.keysym.sym)
 	{

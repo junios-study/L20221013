@@ -57,6 +57,11 @@ public:
 	void LoadLevel(string MapFilename);
 	void UnloadLevel();
 
+	inline FWorld* GetWorld() const
+	{
+		return MyWorld;
+	}
+
 protected:
 
 	virtual void Input();
