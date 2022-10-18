@@ -19,8 +19,8 @@ AText::AText(int NewX, int NewY, string NewContent, int NewFontSize)
 	Font = TTF_OpenFont("./Data/NGULIM.TTF", FontSize);
 
 	wstring UniCode(Content.length(), 0);
-	MultiByteToWideChar(CP_ACP, 0, Content.c_str(), Content.length(),
-		(LPWSTR)UniCode.c_str(), Content.length() + 1);
+	MultiByteToWideChar(CP_ACP, 0, Content.c_str(), (int)Content.length(),
+		(LPWSTR)UniCode.c_str(), (int)Content.length() + 1);
 
 //	MySurface = TTF_RenderText_Solid(Font, Content.c_str(), MyColor);
 	SDL_Color BackgroudColor = { 255, 0, 0, 0 };

@@ -23,6 +23,7 @@ Engine::Engine()
 
 	SDLInit();
 	TTF_Init();
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 }
 
 void Engine::SDLInit()
