@@ -1,5 +1,6 @@
-#include "Text.h"
+﻿#include "Text.h"
 #include "MyEngine.h"
+#include <Windows.h>
 
 AText::AText()
 {
@@ -16,7 +17,14 @@ AText::AText(int NewX, int NewY, string NewContent, int NewFontSize)
 	ZOrder = 100;
 
 	Font = TTF_OpenFont("./Data/NGULIM.TTF", FontSize);
-	MySurface = TTF_RenderText_Solid(Font, Content.c_str(), MyColor);
+
+	wstring UniCode(Content.length(), 0);
+	MultiByteToWideChar(CP_ACP, 0, Content.c_str(), Content.length(),
+		(LPWSTR)UniCode.c_str(), Content.length() + 1);
+
+//	MySurface = TTF_RenderText_Solid(Font, Content.c_str(), MyColor);
+	MySurface = TTF_RenderUNICODE_Solid(Font, (Uint16*)UniCode.c_str(), MyColor);
+
 	MyTexture = SDL_CreateTextureFromSurface(GEngine->MyRenderer,
 		MySurface);
 }

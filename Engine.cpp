@@ -124,7 +124,7 @@ void Engine::Load(string MapFilename)
 	}
 	MapFile.close();
 
-	MyWorld->SpawnActor(new AText(100, 100, "Hello World", 30));
+	MyWorld->SpawnActor(new AText(100, 100, "안녕하세요.", 40));
 
 
 	//Sort
