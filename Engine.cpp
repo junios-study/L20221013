@@ -9,6 +9,7 @@
 #include "Wall.h"
 #include "Goal.h"
 #include "Monster.h"
+#include "Text.h"
 
 
 using namespace std;
@@ -21,6 +22,7 @@ Engine::Engine()
 	bIsRunning = true;
 
 	SDLInit();
+	TTF_Init();
 }
 
 void Engine::SDLInit()
@@ -38,6 +40,7 @@ void Engine::SDLInit()
 
 void Engine::SDLTerm()
 {
+	TTF_Quit();
 	SDL_DestroyRenderer(MyRenderer);
 	SDL_DestroyWindow(MyWindow);
 
@@ -120,6 +123,9 @@ void Engine::Load(string MapFilename)
 		Y++;
 	}
 	MapFile.close();
+
+	MyWorld->SpawnActor(new AText(100, 100, "Hello World", 30));
+
 
 	//Sort
 	SortActor();

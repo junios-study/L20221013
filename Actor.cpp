@@ -30,12 +30,11 @@ AActor::~AActor()
 void AActor::Render()
 {
 	//Text
-	COORD Currrent;
-	Currrent.X = X;
-	Currrent.Y = Y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Currrent);
-
-	cout << Shape;
+	//COORD Currrent;
+	//Currrent.X = X;
+	//Currrent.Y = Y;
+	//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Currrent);
+	//cout << Shape;
 
 	//2D
 	SDL_Rect MyRect = SDL_Rect({ X * TileSize, Y * TileSize, TileSize, TileSize });
