@@ -23,7 +23,13 @@ AText::AText(int NewX, int NewY, string NewContent, int NewFontSize)
 		(LPWSTR)UniCode.c_str(), Content.length() + 1);
 
 //	MySurface = TTF_RenderText_Solid(Font, Content.c_str(), MyColor);
-	MySurface = TTF_RenderUNICODE_Solid(Font, (Uint16*)UniCode.c_str(), MyColor);
+	SDL_Color BackgroudColor = { 255, 0, 0, 0 };
+
+	MySurface = TTF_RenderUNICODE_LCD(Font, (Uint16*)UniCode.c_str(),
+		MyColor, BackgroudColor);
+
+	//MySurface = TTF_RenderUNICODE_Shaded(Font, (Uint16*)UniCode.c_str(), 
+	//	MyColor, BackgroudColor);
 
 	MyTexture = SDL_CreateTextureFromSurface(GEngine->MyRenderer,
 		MySurface);

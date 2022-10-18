@@ -85,8 +85,10 @@ void Engine::QuitGame()
 	bIsRunning = false;
 }
 
-void Engine::Load(string MapFilename)
+void Engine::LoadLevel(string MapFilename)
 {
+	UnloadLevel();
+
 	char Data[100];
 	ifstream MapFile(MapFilename);
 
@@ -124,11 +126,13 @@ void Engine::Load(string MapFilename)
 	}
 	MapFile.close();
 
-	MyWorld->SpawnActor(new AText(100, 100, "¾È³çÇÏ¼¼¿ä.", 40));
-
-
 	//Sort
 	SortActor();
+}
+
+void Engine::UnloadLevel()
+{
+	MyWorld->Terminate();
 }
 
 void Engine::SortActor()
@@ -151,6 +155,11 @@ void Engine::SortActor()
 vector<AActor*>& Engine::GetAllActors()
 {
 	return MyWorld->ActorList;
+}
+
+void Engine::SpawnActor(AActor* NewActor)
+{
+	MyWorld->SpawnActor(NewActor);
 }
 
 void Engine::Input()

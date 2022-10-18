@@ -10,6 +10,8 @@ public:
 	FWorld();
 	~FWorld();
 
+	void Terminate();
+
 	vector<AActor*> ActorList;
 	void SpawnActor(AActor* NewActor);
 	void DestroyActor(AActor* DeleteActor);

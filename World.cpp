@@ -8,6 +8,11 @@ FWorld::FWorld()
 
 FWorld::~FWorld()
 {
+	Terminate();
+}
+
+void FWorld::Terminate()
+{
 	for (auto Value : ActorList)
 	{
 		if (Value)
@@ -50,35 +55,34 @@ void FWorld::DestroyActor(AActor* DeleteActor)
 
 void FWorld::Render()
 {
-	for (auto Value : ActorList)
+	for (int i = 0; i < ActorList.size(); ++i)
 	{
-		Value->Render();
+		ActorList[i]->Render();
 	}
 }
 
 void FWorld::Tick()
 {
-	for (auto Value : ActorList)
+	for (int i = 0; i < ActorList.size(); ++i)
 	{
-		Value->Tick();
+		ActorList[i]->Tick();
 	}
 }
 
 void FWorld::BeginPlay()
 {
 	//World BeginPlay
-
-	for (auto Value : ActorList)
+	for (int i = 0; i < ActorList.size(); ++i)
 	{
-		Value->BeginPlay();
+		ActorList[i]->BeginPlay();
 	}
 }
 
 void FWorld::EndPlay()
 {
-	for (auto Value : ActorList)
+	for (int i = 0; i < ActorList.size(); ++i)
 	{
-		Value->EndPlay();;
+		ActorList[i]->EndPlay();
 	}
 
 	//World EndPlay
